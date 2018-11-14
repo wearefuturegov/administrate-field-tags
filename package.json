@@ -1,0 +1,7 @@
+{
+  "name": "administrate-field-tags",
+  "private": true,
+  "dependencies": {
+    "@yaireo/tagify": "^2.6.5"
+  }
+}

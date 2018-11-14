@@ -1,0 +1,13 @@
+<div class="field-unit__label">
+  <%= f.label field.attribute %>
+</div>
+<div class="field-unit__field">
+  <%= text_field resource_name, field.pluralized_attribute_name, class: 'tagify-field', value: field.as_array, name: nil, 'data-tags' => field.tags %>
+  <div class="tag_wrapper">
+    <% field.data.each do |d| %>
+      <%= hidden_field resource_name, "#{field.attribute_name}_ids".to_sym, value: d.id, multiple: true %>
+    <% end %>
+  </div>
+  <%= hidden_field_tag "#{resource_name}[#{field.attribute_name}_ids][]", nil, disabled: true, multiple: true, class: 'existing' %>
+  <%= hidden_field_tag "#{resource_name}[#{field.pluralized_attribute_name}_attributes][][name]", nil, disabled: true, multiple: true, class: 'new' %>
+</div>
